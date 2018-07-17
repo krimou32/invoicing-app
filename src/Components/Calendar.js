@@ -26,29 +26,29 @@ class Calendar extends Component {
 
         // Retrieve data from DB and construct events array
         const gotData = (data) => {
-        let entries = data.val()
-        let events = []
+            let entries = data.val()
+            let events = []
 
-        for (let item in entries) {
-            let start = new Date(entries[item].start)
-            let end = new Date(entries[item].finish)
-            let task = entries[item].task
+            for (let item in entries) {
+                let start = new Date(entries[item].start)
+                let end = new Date(entries[item].finish)
+                let task = entries[item].task
 
-            events.push({
-            title: task,
-            start: formatDate(start),
-            end: formatDate(end)
-            })
-        }
+                events.push({
+                title: task,
+                start: formatDate(start),
+                end: formatDate(end)
+                })
+            }
 
-        console.log(events)
-        this.setState({ events: events})
+            console.log(events)
+            this.setState({ events: events})
         }
 
         // Log error if any
         const errData = (err) => {
-        console.log('Arrr Error!')
-        console.log(err)
+            console.log('Arrr Error!')
+            console.log(err)
         }
 
         // Retrieve entries in real time from DB
@@ -64,7 +64,7 @@ class Calendar extends Component {
                 header = {{
                     left: 'prev,next today myCustomButton',
                     center: 'title',
-                    right: 'month,basicWeek,basicDay'
+                    right: 'month,agendaWeek,agendaDay'
                 }}
                 navLinks= {true} // can click day/week names to navigate views
                 editable= {false}

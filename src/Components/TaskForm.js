@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
 import * as firebase from 'firebase'
+import JobStatusSnackBar from './JobStatusSnackBar.js'
 
 class TaskForm extends Component {
     constructor(props) {
@@ -155,9 +156,10 @@ class TaskForm extends Component {
               <span className="currencyInputLeft">£</span><input type="number" value={this.state.rate} onChange={this.updateRate} /><span className="currencyInputRight">/hour</span>
             </label>
           </div>
-          <button className="btn-mui" className="startStopBtn" onClick={this.setTimer}>
+          <Button variant="raised" color={this.state.working ? 'secondary' : 'primary'} onClick={this.setTimer}>
             {this.state.working ? 'Stop' : 'Start'}
-          </button>
+          </Button>
+          <JobStatusSnackBar working={this.state.working} />
 
           <div className="timer">
             {hours}:{minutes}:{seconds}
