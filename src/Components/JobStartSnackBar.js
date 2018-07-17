@@ -49,7 +49,7 @@ class JobStartSnackBar extends React.Component {
           ContentProps={{
             'aria-describedby': 'message-id',
           }}
-          message={<span id="message-id">{this.props.working ? 'Let\'s work!' : 'Job saved!'}</span>}
+          message={<span id="message-id">Let's get to work!</span>}
           action={[
             <IconButton
               key="close"
