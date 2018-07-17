@@ -19,7 +19,6 @@ class JobStopSnackBar extends React.Component {
 		open: false
 	}
 
-	//TODO: Fix Snackbar
 	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (this.props.working !== nextProps.working) {
 			this.setState({ open : !nextProps.working })
