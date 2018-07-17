@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
 import * as firebase from 'firebase'
-import JobStatusSnackBar from './JobStatusSnackBar.js'
+import JobStartSnackBar from './JobStartSnackBar.js'
+import JobStopSnackBar from './JobStopSnackBar.js'
 
 class TaskForm extends Component {
     constructor(props) {
@@ -159,7 +160,8 @@ class TaskForm extends Component {
           <Button variant="raised" color={this.state.working ? 'secondary' : 'primary'} onClick={this.setTimer}>
             {this.state.working ? 'Stop' : 'Start'}
           </Button>
-          <JobStatusSnackBar working={this.state.working} />
+          <JobStartSnackBar working={this.state.working} />
+          <JobStopSnackBar working={this.state.working} />
 
           <div className="timer">
             {hours}:{minutes}:{seconds}

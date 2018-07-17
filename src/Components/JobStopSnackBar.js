@@ -13,16 +13,16 @@ const styles = theme => ({
   },
 });
 
-class JobStatusSnackBar extends React.Component {
+class JobStopSnackBar extends React.Component {
 
 	state = {
 		open: false
 	}
 
 	//TODO: Fix Snackbar
-	componentDidUpdate(prevProps) {
-		if (this.props.working !== prevProps.working) {
-			this.setState({ open : this.props.working })
+	UNSAFE_componentWillReceiveProps(nextProps) {
+		if (this.props.working !== nextProps.working) {
+			this.setState({ open : !nextProps.working })
 		}
 	}
 
@@ -68,8 +68,8 @@ class JobStatusSnackBar extends React.Component {
   }
 }
 
-JobStatusSnackBar.propTypes = {
+JobStopSnackBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(JobStatusSnackBar)
+export default withStyles(styles)(JobStopSnackBar)
